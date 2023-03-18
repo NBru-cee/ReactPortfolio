@@ -46,7 +46,7 @@ const Navbar = () => {
 
                 <div
                     className={`z-[999] text-3xl md:hidden m-5 
-                    ${open ? "text-gray-900" : "text-gray-100"}`}
+                    ${open ? "text-gray-900" : "text-gray-900"}`}
                     onClick={() => setOpen(!open)}
                 >
                     <ion-icon name="menu"></ion-icon>
