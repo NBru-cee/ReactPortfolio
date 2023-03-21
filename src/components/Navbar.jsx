@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`transition-all duration-300 fixed w-full left-0 top-0 z-[999] ${
+            className={`fixed w-full left-0 top-0 z-[999] ${
                 sticky ? "bg-white/80 text-gray-900" : "text-white"
             }`}
         >
@@ -36,7 +36,7 @@ const Navbar = () => {
                     }`}
                 >
                     <ul className="flex items-center gap-1 py-2 text-lg">
-                        {menuLinks.map((menu, i) => (
+                        {menuLinks?.map((menu, i) => (
                             <li key={i} className="px-6 hover:text-cyan-600">
                                 <a href={menu?.link}>{menu?.name}</a>
                             </li>
@@ -52,14 +52,19 @@ const Navbar = () => {
                     <ion-icon name="menu"></ion-icon>
                 </div>
                 <div
-                    className={`transition-all duration-300 md:hidden text-gray-900 absolute w-2/3 h-screen px-7 py-2 font-medium bg-white top-0 right-0 ${
+                    className={`duration-300 md:hidden text-gray-900 absolute w-2/3 h-screen px-7 py-2 font-medium bg-white top-0 right-0 ${
                         open ? "right-0" : "right-[-100%]"
                     }`}
                 >
                     <ul className="flex flex-col justify-center h-full gap-10 py-2 text-lg">
-                        {menuLinks.map((menu, i) => (
+                        {menuLinks?.map((menu, i) => (
                             <li key={i} className={`px-6 hover:text-cyan-600`}>
-                                <a href={menu?.link}>{menu?.name}</a>
+                                <a
+                                    href={menu?.link}
+                                    onClick={() => setOpen(!open)}
+                                >
+                                    {menu?.name}
+                                </a>
                             </li>
                         ))}
                     </ul>
